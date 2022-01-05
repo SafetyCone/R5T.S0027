@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 using Microsoft.Extensions.Hosting;
 
-using R5T.Plymouth;
-using R5T.Plymouth.ProgramAsAService;
+using R5T.D0088;
+using R5T.D0090;
 
 
 namespace R5T.S0027
@@ -13,43 +13,43 @@ namespace R5T.S0027
     class Program : ProgramAsAServiceBase
     {
         #region Static
-        
-        static Task Main()
+
+        static async Task Main()
         {
-            return ApplicationBuilder.Instance
-                .NewApplication()
-                .UseProgramAsAService<Program>()
-                .UseT0027_T009_TwoStageStartup<Startup>()
-                .BuildProgramAsAServiceHost()
-                .Run();
+            //OverridableProcessStartTimeProvider.Override("20211214-163052");
+            //OverridableProcessStartTimeProvider.DoNotOverride();
+
+            await Instances.Host.NewBuilder()
+                .UseProgramAsAService<Program, T0075.IHostBuilder>()
+                .UseHostStartup<HostStartup, T0075.IHostBuilder>(Instances.ServiceAction.AddStartupAction())
+                .Build()
+                .SerializeConfigurationAudit()
+                .SerializeServiceCollectionAudit()
+                .RunAsync();
         }
 
         #endregion
-        
-        
-        private IServiceProvider ServiceProvider { get; }
-        
-        
-        public Program(IApplicationLifetime applicationLifetime,
-            IServiceProvider serviceProvider)
-            : base(applicationLifetime)
+
+
+        public Program(IServiceProvider serviceProvider)
+            : base(serviceProvider)
         {
-            this.ServiceProvider = serviceProvider;
         }
-        
-        protected override Task ServiceMain(CancellationToken stoppingToken)
+
+        protected override async Task ServiceMain(CancellationToken stoppingToken)
         {
-            return this.RunOperation();
+            //await this.ServiceProvider.Run<O002_GetRecursiveDependenciesCount>();
+            await this.ServiceProvider.Run<O001_AddProjectReferencesToProject>();
         }
+
+        //private async Task RunOperation()
+        //{
         
-        private async Task RunOperation()
-        {
+        //}
         
-        }
+        //private async Task RunMethod()
+        //{
         
-        private async Task RunMethod()
-        {
-        
-        }
+        //}
     }
 }
