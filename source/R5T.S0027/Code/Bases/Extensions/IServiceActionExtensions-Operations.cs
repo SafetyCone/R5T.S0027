@@ -1,11 +1,5 @@
 ﻿using System;
 
-using R5T.Lombardy;
-
-using R5T.D0078;
-using R5T.D0079;
-using R5T.D0083;
-using R5T.D0101;
 using R5T.O0002;
 using R5T.T0062;
 using R5T.T0063;
@@ -28,12 +22,12 @@ namespace R5T.S0027
         }
 
         /// <summary>
-        /// Adds the <see cref="O001_AddProjectReferencesToProject"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O000_Main"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceAction<O001_AddProjectReferencesToProject> AddO001_AddProjectReferencesToProjectAction(this IServiceAction _,
+        public static IServiceAction<O000_Main> AddO000_Main(this IServiceAction _,
             IServiceAction<AddProjectReferencesToProject> addProjectReferencesToProjectAction)
         {
-            var serviceAction = _.New<O001_AddProjectReferencesToProject>(services => services.AddO001_AddProjectReferencesToProject(
+            var serviceAction = _.New<O000_Main>(services => services.AddO000_Main(
                 addProjectReferencesToProjectAction));
 
             return serviceAction;

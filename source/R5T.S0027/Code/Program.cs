@@ -38,8 +38,9 @@ namespace R5T.S0027
 
         protected override async Task ServiceMain(CancellationToken stoppingToken)
         {
+            await this.ServiceProvider.Run<O000_Main>();
+
             //await this.ServiceProvider.Run<O002_GetRecursiveDependenciesCount>();
-            await this.ServiceProvider.Run<O001_AddProjectReferencesToProject>();
         }
 
         //private async Task RunOperation()

@@ -85,6 +85,7 @@ namespace R5T.S0027
                 servicesPlatform.StringlyTypedPathOperatorAction);
 
             // Operations.
+            // Level 01.
             var addProjectReferencesToProjectAction = Instances.ServiceAction.AddAddProjectReferencesToProjectAction(
                 projectRepositoryAction,
                 servicesPlatform.StringlyTypedPathOperatorAction,
@@ -94,8 +95,8 @@ namespace R5T.S0027
             var getRecursiveDependenciesCountAction = Instances.ServiceAction.AddGetRecursiveDependenciesCountAction(
                 visualStudioProjectFileReferencesProviderAction);
 
-            // Local.
-            var o001_AddProjectReferencesToProjectAction = Instances.ServiceAction.AddO001_AddProjectReferencesToProjectAction(
+            // Level 02.
+            var o000_Main = Instances.ServiceAction.AddO000_Main(
                 addProjectReferencesToProjectAction);
             var o002_GetRecursiveDependenciesCountAction = Instances.ServiceAction.AddO002_GetRecursiveDependenciesCountAction(
                 getRecursiveDependenciesCountAction);
@@ -105,7 +106,7 @@ namespace R5T.S0027
                 .Run(servicesPlatform.ConfigurationAuditSerializerAction)
                 .Run(servicesPlatform.ServiceCollectionAuditSerializerAction)
                 // Operations.
-                .Run(o001_AddProjectReferencesToProjectAction)
+                .Run(o000_Main)
                 .Run(o002_GetRecursiveDependenciesCountAction)
                 ;
 

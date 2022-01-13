@@ -8,12 +8,12 @@ using LocalData;
 
 namespace R5T.S0027
 {
-    public class O001_AddProjectReferencesToProject : T0020.IActionOperation
+    public class O000_Main : T0020.IActionOperation
     {
         private AddProjectReferencesToProject AddProjectReferencesToProject { get; }
 
 
-        public O001_AddProjectReferencesToProject(
+        public O000_Main(
             AddProjectReferencesToProject addProjectReferencesToProject)
         {
             this.AddProjectReferencesToProject = addProjectReferencesToProject;
