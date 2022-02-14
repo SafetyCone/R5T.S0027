@@ -5,6 +5,8 @@ using R5T.O0002;
 
 using LocalData;
 
+using R5T.S0027.Lib;
+
 
 namespace R5T.S0027
 {
@@ -22,14 +24,13 @@ namespace R5T.S0027
         public async Task Run()
         {
             // Inputs.
-            var projectToModifyFilePath = @"C:\Code\DEV\Git\GitHub\SafetyCone\R5T.S0026\source\R5T.S0026\R5T.S0026.csproj";
-            var projectReferencesToAddIdentityStrings = new[]
-            {
-                Instances.ProjectPath.R5T_D0077_A002(),
-                Instances.ProjectPath.R5T_D0078_A002(),
-                Instances.ProjectPath.R5T_D0079_A002(),
-                Instances.ProjectPath.R5T_D0083_I001(),
-            };
+            var projectToModifyFilePath = @"C:\Code\DEV\Git\GitHub\SafetyCone\R5T.E0046\source\R5T.E0046\R5T.E0046.csproj";
+            var projectReferencesToAddIdentityStrings =
+                Instances.ProjectPath.GetProjectRepositoryRelatedProjectIdentityStrings();
+            //new[]
+            //{
+            //    Instances.ProjectPath.R5T_X0002(),
+            //};
 
             // Run.
             await this.AddProjectReferencesToProject.Run(
