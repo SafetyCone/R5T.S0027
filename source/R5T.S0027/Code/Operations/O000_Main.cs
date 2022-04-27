@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 using R5T.O0002;
@@ -24,17 +25,19 @@ namespace R5T.S0027
         public async Task Run()
         {
             // Inputs.
-            var projectToModifyFilePath = @"C:\Code\DEV\Git\GitHub\SafetyCone\R5T.E0046\source\R5T.E0046\R5T.E0046.csproj";
+            var projectFilePath = @"C:\Code\DEV\Git\GitHub\SafetyCone\R5T.S0031\source\R5T.S0031\R5T.S0031.csproj";
             var projectReferencesToAddIdentityStrings =
-                Instances.ProjectPath.GetProjectRepositoryRelatedProjectIdentityStrings();
-            //new[]
-            //{
-            //    Instances.ProjectPath.R5T_X0002(),
-            //};
+                //Instances.ProjectPath.GetVisualStudioRelatedProjectIdentityStrings()
+                //.Concat(Instances.ProjectPath.GetProjectRepositoryRelatedProjectIdentityStrings())
+                Instances.ProjectPath.GetProjectIdentityStringsRelatedTo_GetAllRepositoryDirectories()
+                //EnumerableHelper.From(new[] {
+                //    Instances.ProjectPath.R5T_D0084_A001(),
+                //})
+                .Now();
 
             // Run.
             await this.AddProjectReferencesToProject.Run(
-                projectToModifyFilePath,
+                projectFilePath,
                 projectReferencesToAddIdentityStrings);
         }
     }
