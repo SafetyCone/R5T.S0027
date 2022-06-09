@@ -57,6 +57,16 @@ namespace R5T.S0027.Lib
             return identityStrings;
         }
 
+        public static string[] GetProjectIdentityStringsRelatedTo_NotepadPlusPlus(this IProjectPath _)
+        {
+            var identityStrings = new[]
+            {
+                _.R5T_D0105_I001()
+            };
+
+            return identityStrings;
+        }
+
         public static string[] GetProjectIdentityStringsRelatedTo_ProjectRepository(this IProjectPath _)
         {
             var identityStrings = new[]
@@ -74,6 +84,18 @@ namespace R5T.S0027.Lib
             {
                 _.R5T_D0084_D001_I002(),
                 _.R5T_D0084_D002_I001(),
+            };
+
+            return identityStrings;
+        }
+
+        public static string[] GetProjectIdentityStringsRelatedTo_Testing(this IProjectPath _)
+        {
+            var identityStrings = new[]
+            {
+                _.R5T_L0020(),
+                _.R5T_T0119_X001(),
+                _.R5T_T0120_X002(),
             };
 
             return identityStrings;

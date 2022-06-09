@@ -25,14 +25,14 @@ namespace R5T.S0027
         public async Task Run()
         {
             // Inputs.
-            var projectFilePath = @"C:\Code\DEV\Git\GitHub\SafetyCone\R5T.S0031\source\R5T.S0031\R5T.S0031.csproj";
+            var projectFilePath = @"C:\Code\DEV\Git\GitHub\SafetyCone\R5T.S0038\source\R5T.S0038\R5T.S0038.csproj";
             var projectReferencesToAddIdentityStrings =
                 //Instances.ProjectPath.GetVisualStudioRelatedProjectIdentityStrings()
                 //.Concat(Instances.ProjectPath.GetProjectRepositoryRelatedProjectIdentityStrings())
-                Instances.ProjectPath.GetProjectIdentityStringsRelatedTo_GetAllRepositoryDirectories()
-                //EnumerableHelper.From(new[] {
-                //    Instances.ProjectPath.R5T_D0084_A001(),
-                //})
+                //Instances.ProjectPath.GetProjectIdentityStringsRelatedTo_VisualStudio()
+                EnumerableHelper.From(new[] {
+                    Instances.ProjectPath.R5T_D0116_A0001(),
+                })
                 .Now();
 
             // Run.
