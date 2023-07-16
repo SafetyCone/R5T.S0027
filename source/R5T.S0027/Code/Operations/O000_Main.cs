@@ -29,10 +29,10 @@ namespace R5T.S0027
             var projectReferencesToAddIdentityStrings =
                 //Instances.ProjectPath.GetVisualStudioRelatedProjectIdentityStrings()
                 //.Concat(Instances.ProjectPath.GetProjectRepositoryRelatedProjectIdentityStrings())
-                //Instances.ProjectPath.GetProjectIdentityStringsRelatedTo_VisualStudio()
-                EnumerableHelper.From(new[] {
-                    Instances.ProjectPath.R5T_D0116_A0001(),
-                })
+                Instances.ProjectPath.GetProjectIdentityStringsRelatedTo_VisualStudio()
+                //EnumerableHelper.From(new[] {
+                //    Instances.ProjectPath.R5T_D0116_A0001(),
+                //})
                 .Now();
 
             // Run.
